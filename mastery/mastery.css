@@ -1,0 +1,22 @@
+body { background-color: #333; }
+
+input[type="checkbox"] { display: none; }
+
+.button { user-select: none; }
+.button span { 
+	display: inline-block; 
+	width: 100px; 
+	text-align: center; 
+	border-width: 1px;
+	border-style: solid;
+	margin: 1px;
+	padding: 2px;
+	border-color: #888; 
+	background-color: black;
+	color: #eee;
+}
+.button > input:checked + span {
+	border-color: #ff0;
+	background-color: #770;
+	color: #ff9;
+}
