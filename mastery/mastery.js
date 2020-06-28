@@ -5,7 +5,6 @@ WFMastery = (function () {
 	
 	function toggle(e) {
 		t = e.target;
-		console.log(t);
 		if (t.classList.contains("checked")) {
 			t.classList.remove("checked");
 			return false;
@@ -24,9 +23,9 @@ WFMastery = (function () {
 		founded = document.getElementsByClassName("founder");
 		let L = founded.length;
 		for (let i = 0; i < L; i++) {
-			if (config_founder) {
+			if (config_founder && !mastered[i].classList.contains("config")) {
 				founded[i].classList.add("hide");
-			} else if (!(config_mastered&&founded[i].classList.contains("checked"))) {
+			} else if (!(config_mastered && founded[i].classList.contains("checked"))) {
 				founded[i].classList.remove("hide");
 			}
 		}
