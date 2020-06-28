@@ -38,7 +38,7 @@ WFMastery = (function () {
 			if (config_mastered && !mastered[i].classList.contains("config")) {
 				mastered[i].classList.add("hide");
 			} else if (!(config_founder && founded[i].classList.contains("founder"))) {
-				for (let i = 0; i < L; i++) mastered[i].classList.remove("hide");
+				mastered[i].classList.remove("hide");
 			}
 		}
 	}
