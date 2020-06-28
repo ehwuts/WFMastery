@@ -20,7 +20,7 @@ WFMastery = (function () {
 	//whee code duplication
 	function toggle_founder(e) {
 		config_founder = toggle(e);
-		founded = document.getElementsByClassName("founder");
+		let founded = document.getElementsByClassName("founder");
 		let L = founded.length;
 		for (let i = 0; i < L; i++) {
 			if (config_founder && !founded[i].classList.contains("config")) {
@@ -32,12 +32,12 @@ WFMastery = (function () {
 	}
 	function toggle_mastered(e) {
 		config_mastered = toggle(e);
-		mastered = document.getElementsByClassName("checked");
+		let mastered = document.getElementsByClassName("checked");
 		let L = mastered.length;
 		for (let i = 0; i < L; i++) {
 			if (config_mastered && !mastered[i].classList.contains("config")) {
 				mastered[i].classList.add("hide");
-			} else if (!(config_founder && founded[i].classList.contains("founder"))) {
+			} else if (!(config_founder && mastered[i].classList.contains("founder"))) {
 				mastered[i].classList.remove("hide");
 			}
 		}
