@@ -1,10 +1,9 @@
 body { background-color: #333; }
+.hide { display: none; }
 
-input[type="checkbox"] { display: none; }
-
-.button { user-select: none; }
-.button span { 
-	display: inline-block; 
+.button {
+	display: inline-block;
+	user-select: none;
 	width: 100px; 
 	text-align: center; 
 	border-width: 1px;
@@ -15,8 +14,10 @@ input[type="checkbox"] { display: none; }
 	background-color: black;
 	color: #eee;
 }
-.button > input:checked + span {
+div.checked {
 	border-color: #ff0;
 	background-color: #770;
-	color: #ff9;
+	color: #ff9;	
 }
+
+div.checked.config { display: inline-block; }
