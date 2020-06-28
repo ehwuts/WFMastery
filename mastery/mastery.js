@@ -1,4 +1,5 @@
-WFMastery = (function () {
+WFMastery = (function (srcData) {
+	data = {};
 	o = {};
 	config_mastered = false;
 	config_founder = false;
@@ -43,19 +44,29 @@ WFMastery = (function () {
 		}
 	}
 	
-	o.init = function () {
-		
-		e = document.getElementsByClassName("button");
-		let L = e.length;
-		for (let i = 0; i < L; i++) {
-			e[i].onclick = toggle;
+	function initData() {
+		try {
+			data = this.response;
+			//console.log(test);
+		} catch (e) {
+			console.log("Failed to load item lists, panic!");
+			console.log(e);
 		}
+	}
+	
+	o.init = function () {
 		document.getElementById("config_founder").onclick = toggle_founder;
 		document.getElementById("config_mastered").onclick = toggle_mastered;
+		
+		var request = new XMLHttpRequest();
+		request.open("GET", srcData);
+		request.responseType = "json";
+		request.onload = initData;
+		request.send();
 	}
 	
 	return o;
-})();
+})("mastery/mastery_data.json");
 
 
 window.addEventListener("load", () => { WFMastery.init(); });
