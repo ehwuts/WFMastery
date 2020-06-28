@@ -23,7 +23,7 @@ WFMastery = (function () {
 		founded = document.getElementsByClassName("founder");
 		let L = founded.length;
 		for (let i = 0; i < L; i++) {
-			if (config_founder && !mastered[i].classList.contains("config")) {
+			if (config_founder && !founded[i].classList.contains("config")) {
 				founded[i].classList.add("hide");
 			} else if (!(config_mastered && founded[i].classList.contains("checked"))) {
 				founded[i].classList.remove("hide");
