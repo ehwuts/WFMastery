@@ -44,11 +44,7 @@ WFMastery = (function () {
 		}
 	}
 	
-	function init_config_mastered_style() {
-	}
-	
 	o.init = function () {
-		init_config_mastered_style();
 		
 		e = document.getElementsByClassName("button");
 		let L = e.length;
