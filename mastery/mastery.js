@@ -1,14 +1,17 @@
 WFMastery = (function (srcData) {
 	var data = {};
+	var categories = {};
 	var o = {};
 	var config_mastered = false;
 	var config_founder = false;
+	var mastery_gained = 0;
 
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder);}
 
 	function toggle(e) {
 		var result = false;
 		var t = e.target;
+		var category = t.id.split("_")[1];
 		var classes = t.classList;
 		if (classes.contains("checked")) {
 			classes.remove("checked");
@@ -25,6 +28,10 @@ WFMastery = (function (srcData) {
 			var counted = counter.innerText.split("/");
 			counted[0] = (counted[0]|0) + (result ? 1 : -1);
 			counter.innerText = counted[0] + "/" + counted[1];
+		}
+		if (category) {
+			let e = document.getElementById("mastery_gained");
+			e.innerText = (e.innerText|0) + (result ? categories[category] : - categories[category]);
 		}
 		return result;
 	}
@@ -87,15 +94,19 @@ WFMastery = (function (srcData) {
 		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
 	}
 	function initLayout() {
+		var mastery_possible = 0;
 		let I = data.categories.length;
 		for (let i = 0; i < I; i++) {
+			categories[data.categories[i].category] = data.categories[i].mastery;
 			data.categories[i].items.sort();
 			let J = data.categories[i].items.length;
+			mastery_possible += data.categories[i].mastery * J;
 			create_category(data.categories[i].category, J);
 			for (let j = 0; j < J; j++) {
 				create_button(data.categories[i].category, data.categories[i].items[j]);
 			}
 		}
+		document.getElementById("mastery_possible").innerText = mastery_possible;
 		var buttons = document.getElementsByClassName("button");
 		I = buttons.length;
 		for (let i = 0; i < I; i++) {
