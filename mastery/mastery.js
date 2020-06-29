@@ -97,6 +97,11 @@ WFMastery = (function (srcData) {
 		state_sliders[parts[1]].value = t.value;
 		update_mastery_gained(points_new - points_old);
 	}
+	function fudge_slider(name, value) {
+		let t = document.getElementById("slider_" + name);
+		t.value = value;
+		update_slider({ "target": t });
+	}
 	function update_mastery_gained(delta) {
 		mastery_gained += delta;
 		document.getElementById("mastery_gained").innerText = mastery_gained;
@@ -112,7 +117,8 @@ WFMastery = (function (srcData) {
 		let cache = {
 			"config_mastered": config_mastered,
 			"config_founder": config_founder,
-			"items" : {}
+			"items": {},
+			"sliders": {}
 		};
 		
 		//JSON stringify treats TypedArrays as objects which triples output size
@@ -121,6 +127,11 @@ WFMastery = (function (srcData) {
 		let I = keys.length;
 		for (let i = 0; i < I; i++) {
 			cache.items[keys[i]] = Array.from(state[keys[i]]);
+		}
+		keys = Object.keys(state_sliders);
+		I = keys.length;
+		for (let i = 0; i < I; i++) {
+			cache.sliders[keys[i]] = state_sliders[keys[i]].value;
 		}
 		
 		return JSON.stringify(cache);
@@ -155,6 +166,15 @@ WFMastery = (function (srcData) {
 					if (e) {
 						e.click();
 					}
+				}
+			}
+		}
+		if (s.sliders) {
+			keys = Object.keys(s.sliders);
+			I = keys.length;
+			for (let i = 0; i < I; i++) {
+				if (state_sliders[keys[i]]) {
+					fudge_slider(keys[i], s.sliders[keys[i]]);
 				}
 			}
 		}
