@@ -53,6 +53,12 @@ WFMastery = (function (srcData) {
 			}
 		}
 	}
+	function reset_entries() {
+		let checked = document.getElementsByClassName("checked");
+		for (let i = checked.length - 1; i >= 0; i--) {
+			checked[i].click();
+		}
+	}
 	
 	function create_button(category, item) {
 		var e = document.getElementById("c_" + category);
@@ -83,6 +89,7 @@ WFMastery = (function (srcData) {
 		}
 		document.getElementById("config_founder").onclick = toggle_founder;
 		document.getElementById("config_mastered").onclick = toggle_mastered;
+		document.getElementById("config_reset").onclick = reset_entries;
 	}
 	
 	function initData() {
