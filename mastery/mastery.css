@@ -24,6 +24,6 @@ div.checked {
 }
 
 .hide { display: none; }
-div.config { display: inline-block; }
+/*div.config { display: inline-block; }*/
 
 /*.category { display: flex; flex-flow: row wrap; }*/

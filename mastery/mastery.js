@@ -5,20 +5,24 @@ WFMastery = (function (srcData) {
 	var config_mastered = false;
 	var config_founder = false;
 	var mastery_gained = 0;
+	var can_save = false;
+	var state = {};
 
-	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder);}
+	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
+	o.getState = () => { return state; }
 
 	function toggle(e) {
 		var result = false;
 		var t = e.target;
-		var category = t.id.split("_")[1];
+		var ident = t.id.split("_");
+		var category = ident[1];
 		var classes = t.classList;
 		if (classes.contains("checked")) {
 			classes.remove("checked");
 			classes.remove("hide");
 		} else {
 			classes.add("checked");
-			if (config_mastered && !(config_founder && classes.contains("founder"))) {
+			if (config_mastered && !classes.contains("config") && !(config_founder && classes.contains("founder"))) {
 				classes.add("hide");
 			}
 			result = true;
@@ -28,10 +32,11 @@ WFMastery = (function (srcData) {
 			var counted = counter.innerText.split("/");
 			counted[0] = (counted[0]|0) + (result ? 1 : -1);
 			counter.innerText = counted[0] + "/" + counted[1];
-		}
-		if (category) {
-			let e = document.getElementById("mastery_gained");
-			e.innerText = (e.innerText|0) + (result ? categories[category] : - categories[category]);
+			if (category) {
+				let e = document.getElementById("mastery_gained");
+				e.innerText = (e.innerText|0) + (result ? categories[category] : - categories[category]);
+				state[category][ident[2]] = result ? 1 : 0;
+			}
 		}
 		return result;
 	}
@@ -69,10 +74,57 @@ WFMastery = (function (srcData) {
 		}
 	}
 	function save() {
-		console.log("save - NYI");
+		if (can_save) {
+			let cache = {
+				"config_mastered": config_mastered,
+				"config_founder": config_founder,
+				"items" : {}
+			};
+			
+			//JSON stringify treats TypedArrays as objects which triples output size
+			//so first, convert to generics
+			let keys = Object.keys(state);
+			let I = keys.length;
+			for (let i = 0; i < I; i++) {
+				cache.items[keys[i]] = Array.from(state[keys[i]]);
+			}
+			
+			window.localStorage.setItem("state", JSON.stringify(cache));
+		} else {
+			console.log("wutrudoin callin save() after init failed to find localStorage and disabled the button");
+		}
 	}
 	function load() {
-		console.log("load - NYI");
+		if (can_save) {
+			let s = JSON.parse(window.localStorage.getItem("state"));
+			
+			document.getElementById("config_reset").click();
+			
+			if (s.config_mastered) {
+				document.getElementById("config_mastered").click();
+			}
+			if (s.config_founder) {
+				document.getElementById("config_founder").click();
+			}
+			
+			let keys = Object.keys(s.items);
+			let I = keys.length;
+			for (let i = 0; i < I; i++) {
+				let category = s.items[keys[i]];
+				let J = category.length;
+				for (let j = 0; j < J; j++) {
+					if (category[j]) {
+						let e = document.getElementById("i_" + keys[i] + "_" + j);
+						if (e) {
+							e.click();
+						}
+					}
+				}
+			}
+			
+		} else {
+			console.log("wutrudoin callin load() after init failed to find localStorage and disabled the button");
+		}
 	}
 	function export_state() {
 		console.log("export_state - NYI");
@@ -97,16 +149,31 @@ WFMastery = (function (srcData) {
 		var mastery_possible = 0;
 		let I = data.categories.length;
 		for (let i = 0; i < I; i++) {
-			categories[data.categories[i].category] = data.categories[i].mastery;
-			data.categories[i].items.sort();
-			let J = data.categories[i].items.length;
+			let category = data.categories[i].category;
+			let items = data.categories[i].items;
+			//bookkeeping helper
+			categories[category] = data.categories[i].mastery;
+			//alphabeticize the data
+			items.sort();
+			
+			let J = items.length;			
 			mastery_possible += data.categories[i].mastery * J;
-			create_category(data.categories[i].category, J);
+			create_category(category, J);
+			
+			if (typeof state[category] !== "undefined") {
+				console.log("Warning: Duplicate item category '" + category + "' during initialization. This WILL break things.");
+			}
+			//TypedArrays have the speed
+			state[category] = new Int8Array(J).fill(0);
+			
 			for (let j = 0; j < J; j++) {
-				create_button(data.categories[i].category, data.categories[i].items[j]);
+				create_button(category, items[j]);
 			}
 		}
 		document.getElementById("mastery_possible").innerText = mastery_possible;
+		
+		//blanket assign generic toggle then overwrite configs with their customs
+		//because other assignment orders were mysteriously broken
 		var buttons = document.getElementsByClassName("button");
 		I = buttons.length;
 		for (let i = 0; i < I; i++) {
@@ -115,10 +182,22 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_founder").onclick = toggle_founder;
 		document.getElementById("config_mastered").onclick = toggle_mastered;
 		document.getElementById("config_reset").onclick = reset_entries;
-		document.getElementById("config_save").onclick = save;
-		document.getElementById("config_load").onclick = load;
 		document.getElementById("config_export").onclick = export_state;
 		document.getElementById("config_import").onclick = import_state;
+		
+		//check that localstorage is even a thing for local persistance
+		if (!!window.localStorage) {
+			can_save = true;
+			document.getElementById("config_save").onclick = save;
+			document.getElementById("config_load").onclick = load;
+		} else {
+			let e = document.getElementById("config_save");
+			e.onclick = undefined;
+			e.classList.add("hide");
+			e = document.getElementById("config_load");
+			e.onclick = undefined;
+			e.classList.add("hide");
+		}
 	}
 
 	function initData() {
