@@ -5,8 +5,10 @@ WFMastery = (function (srcData) {
 	var config_mastered = false;
 	var config_founder = false;
 	var show_code = false;
+	var master_possible = 0;
 	var mastery_gained = 0;
 	var can_save = false;
+	var state_sliders = {};
 	var state = {};
 
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
@@ -34,8 +36,7 @@ WFMastery = (function (srcData) {
 			counted[0] = (counted[0]|0) + (result ? 1 : -1);
 			counter.innerText = counted[0] + "/" + counted[1];
 			if (category) {
-				let e = document.getElementById("mastery_gained");
-				e.innerText = (e.innerText|0) + (result ? categories[category] : - categories[category]);
+				update_mastery_gained(result ? categories[category] : - categories[category]);
 				state[category][ident[2]] = result ? 1 : 0;
 			}
 		}
@@ -75,6 +76,30 @@ WFMastery = (function (srcData) {
 		} else {
 			classes.add("hide");
 		}
+	}
+	function update_slider(e) {
+		let t = e.target;
+		let parts = t.id.split("_");
+		let counter = document.getElementById("slider_amount_" + parts[1]);
+		counter.innerText = "" + t.value + "/" + counter.innerText.split("/")[1];
+		
+		let slider = data.sliders[state_sliders[parts[1]].id];
+		
+		if (slider.total) {
+			var points_old = state_sliders[parts[1]].value;
+			points_old = Math.round(slider.total * points_old / slider.count);
+			var points_new = Math.round(slider.total * t.value / slider.count);
+		} else {
+			var points_old = state_sliders[parts[1]].value * slider.value;
+			var points_new = t.value * slider.value;
+		}
+		
+		state_sliders[parts[1]].value = t.value;
+		update_mastery_gained(points_new - points_old);
+	}
+	function update_mastery_gained(delta) {
+		mastery_gained += delta;
+		document.getElementById("mastery_gained").innerText = mastery_gained;
 	}
 
 	function reset_entries() {
@@ -160,9 +185,14 @@ WFMastery = (function (srcData) {
 	function create_category(category, length) {
 		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
 	}
+	function create_slider(slider, id) {
+		state_sliders[slider.name] = { "value" : 0, "id" : id };
+		document.getElementById("sliders").innerHTML += 
+		"<div>" + slider.name + " - <span id=\"slider_amount_" + slider.name + "\">0/" + slider.count + "</span><br><input type=\"range\" class=\"slider\" id=\"slider_" + slider.name + "\" value=\"0\" min=\"0\" max=\"" + slider.count + "\"></div>";
+	}
 	function initLayout() {
 		document.getElementById("patch").innerText = data.patch;
-		var mastery_possible = 0;
+		mastery_possible = 0;
 		let I = data.categories.length;
 		for (let i = 0; i < I; i++) {
 			let category = data.categories[i].category;
@@ -186,6 +216,18 @@ WFMastery = (function (srcData) {
 				create_button(category, items[j]);
 			}
 		}
+		
+		I = data.sliders.length;
+		for (let i = 0; i < I; i++) {
+			let slider = data.sliders[i];
+			create_slider(slider, i);
+			if (slider.total) {
+				mastery_possible += slider.total;
+			} else {
+				mastery_possible += slider.count * slider.value;
+			}
+		}
+		
 		document.getElementById("mastery_possible").innerText = mastery_possible;
 		
 		//blanket assign generic toggle then overwrite configs with their customs
@@ -201,6 +243,12 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_export").onclick = export_state;
 		document.getElementById("config_import").onclick = import_state;
 		document.getElementById("config_show_code").onclick = toggle_show_code;
+		
+		var sliders = document.getElementsByClassName("slider");
+		I = sliders.length;
+		for (let i = 0; i < I; i++) {
+			sliders[i].onchange = update_slider;
+		}
 		
 		//check that localstorage is even a thing for local persistance
 		if (!!window.localStorage) {

@@ -14,7 +14,7 @@ hr { border: none; border-top: 1px solid #999; }
 	margin: 1px;
 	padding: 2px;
 	border-color: #888; 
-	background-color: black;
+	background-color: #000;
 	color: #eee;
 }
 div.checked {
@@ -26,6 +26,7 @@ div.checked {
 .hide { display: none; }
 #wrap_code { position: absolute; left: 5px; top:40px; padding: 10px;  background-color: #000; }
 #config_code { min-width: 25em; min-height: 5em; }
+#sliders > div { display: inline-block; text-align: center; border: 1px solid #888; background-color: #000;  }
 /*div.config { display: inline-block; }*/
 
 /*.category { display: flex; flex-flow: row wrap; }*/
