@@ -3,15 +3,16 @@ WFMastery = (function (srcData) {
 	var o = {};
 	var config_mastered = false;
 	var config_founder = false;
-	
+
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder);}
-	
+
 	function toggle(e) {
 		var result = false;
 		var t = e.target;
 		var classes = t.classList;
 		if (classes.contains("checked")) {
 			classes.remove("checked");
+			classes.remove("hide");
 		} else {
 			classes.add("checked");
 			if (config_mastered && !(config_founder && classes.contains("founder"))) {
@@ -27,7 +28,7 @@ WFMastery = (function (srcData) {
 		}
 		return result;
 	}
-	
+
 	//whee code duplication
 	function toggle_founder(e) {
 		config_founder = toggle(e);
@@ -53,13 +54,26 @@ WFMastery = (function (srcData) {
 			}
 		}
 	}
+
 	function reset_entries() {
 		let checked = document.getElementsByClassName("checked");
 		for (let i = checked.length - 1; i >= 0; i--) {
 			checked[i].click();
 		}
 	}
-	
+	function save() {
+		console.log("save - NYI");
+	}
+	function load() {
+		console.log("load - NYI");
+	}
+	function export_state() {
+		console.log("export_state - NYI");
+	}
+	function import_state() {
+		console.log("import_state - NYI");
+	}
+
 	function create_button(category, item) {
 		var e = document.getElementById("c_" + category);
 		var id = "i_" + category + "_" + item[1];
@@ -90,8 +104,12 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_founder").onclick = toggle_founder;
 		document.getElementById("config_mastered").onclick = toggle_mastered;
 		document.getElementById("config_reset").onclick = reset_entries;
+		document.getElementById("config_save").onclick = save;
+		document.getElementById("config_load").onclick = load;
+		document.getElementById("config_export").onclick = export_state;
+		document.getElementById("config_import").onclick = import_state;
 	}
-	
+
 	function initData() {
 		try {
 			data = this.response;
@@ -101,7 +119,7 @@ WFMastery = (function (srcData) {
 			console.log(e);
 		}
 	}
-	
+
 	o.init = function () {
 		var request = new XMLHttpRequest();
 		request.open("GET", srcData);
@@ -109,7 +127,7 @@ WFMastery = (function (srcData) {
 		request.onload = initData;
 		request.send();
 	}
-	
+
 	return o;
 })("mastery/mastery_data.json");
 
