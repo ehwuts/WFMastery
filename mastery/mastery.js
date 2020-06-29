@@ -32,8 +32,8 @@ WFMastery = (function (srcData) {
 	function toggle_founder(e) {
 		config_founder = toggle(e);
 		let founded = document.getElementsByClassName("founder");
-		let L = founded.length;
-		for (let i = 0; i < L; i++) {
+		let I = founded.length;
+		for (let i = 0; i < I; i++) {
 			if (config_founder && !founded[i].classList.contains("config")) {
 				founded[i].classList.add("hide");
 			} else if (!(config_mastered && founded[i].classList.contains("checked"))) {
@@ -44,8 +44,8 @@ WFMastery = (function (srcData) {
 	function toggle_mastered(e) {
 		config_mastered = toggle(e);
 		let mastered = document.getElementsByClassName("checked");
-		let L = mastered.length;
-		for (let i = 0; i < L; i++) {
+		let I = mastered.length;
+		for (let i = 0; i < I; i++) {
 			if (config_mastered && !mastered[i].classList.contains("config")) {
 				mastered[i].classList.add("hide");
 			} else if (!(config_founder && mastered[i].classList.contains("founder"))) {
