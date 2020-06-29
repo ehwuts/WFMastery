@@ -161,6 +161,7 @@ WFMastery = (function (srcData) {
 		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
 	}
 	function initLayout() {
+		document.getElementById("patch").innerText = data.patch;
 		var mastery_possible = 0;
 		let I = data.categories.length;
 		for (let i = 0; i < I; i++) {
