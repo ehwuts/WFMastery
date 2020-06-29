@@ -4,6 +4,7 @@ WFMastery = (function (srcData) {
 	var o = {};
 	var config_mastered = false;
 	var config_founder = false;
+	var show_code = false;
 	var mastery_gained = 0;
 	var can_save = false;
 	var state = {};
@@ -66,6 +67,15 @@ WFMastery = (function (srcData) {
 			}
 		}
 	}
+	function toggle_show_code(e) {
+		show_code = toggle(e);
+		classes = document.getElementById("wrap_code").classList;
+		if (show_code) {
+			classes.remove("hide");
+		} else {
+			classes.add("hide");
+		}
+	}
 
 	function reset_entries() {
 		let checked = document.getElementsByClassName("checked");
@@ -73,7 +83,7 @@ WFMastery = (function (srcData) {
 			checked[i].click();
 		}
 	}
-	function export_base() {
+	function serialize_base() {
 		let cache = {
 			"config_mastered": config_mastered,
 			"config_founder": config_founder,
@@ -92,12 +102,12 @@ WFMastery = (function (srcData) {
 	}
 	function save() {
 		if (can_save) {
-			window.localStorage.setItem("state", export_base());
+			window.localStorage.setItem("state", serialize_base());
 		} else {
 			console.log("wutrudoin callin save() after init failed to find localStorage and disabled the button");
 		}
 	}
-	function load_base(input) {
+	function deserialize_base(input) {
 		let s = JSON.parse(input);
 		
 		document.getElementById("config_reset").click();
@@ -126,16 +136,16 @@ WFMastery = (function (srcData) {
 	}
 	function load() {
 		if (can_save) {
-			load_base(window.localStorage.getItem("state"));
+			deserialize_base(window.localStorage.getItem("state"));
 		} else {
 			console.log("wutrudoin callin load() after init failed to find localStorage and disabled the button");
 		}
 	}
 	function export_state() {
-		console.log("export_state - NYI");
+		document.getElementById("config_code").value = serialize_base();
 	}
 	function import_state() {
-		console.log("import_state - NYI");
+		deserialize_base(document.getElementById("config_code").value);
 	}
 
 	function create_button(category, item) {
@@ -189,6 +199,7 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_reset").onclick = reset_entries;
 		document.getElementById("config_export").onclick = export_state;
 		document.getElementById("config_import").onclick = import_state;
+		document.getElementById("config_show_code").onclick = toggle_show_code;
 		
 		//check that localstorage is even a thing for local persistance
 		if (!!window.localStorage) {

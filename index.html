@@ -8,10 +8,12 @@
 </head>
 <body>
 <div id="configs">
-<div class="button config" id="config_founder">Hide Founder</div><div class="button config" id="config_mastered">Hide Mastered</div><div class="button config" id="config_reset">Reset Selections</div><div class="button config" id="config_save">Save to Local</div><div class="button config" id="config_load">Load from Local</div><div class="button config" id="config_export">Export Code</div><div class="button config" id="config_import">Import Code</div><br>
+<div class="button config" id="config_founder">Hide Founder</div><div class="button config" id="config_mastered">Hide Mastered</div><div class="button config" id="config_reset">Reset Selections</div><div class="button config" id="config_save">Save to Local</div><div class="button config" id="config_load">Load from Local</div><div class="button config" id="config_show_code">Show Import/Export</div><br>
 <span id="mastery">Mastery Points - <span id="mastery_gained">0</span>/<span id="mastery_possible">0</span></span>
 </div>
 <div id="listings"></div>
+<div id="wrap_code" class="hide"><textarea id="config_code"></textarea><br>
+<div class="button config" id="config_export">Export to Text</div><div class="button config" id="config_import">Load from Text</div></div>
 <script src="mastery/mastery.js"></script>
 </body>
 </html>
