@@ -73,55 +73,60 @@ WFMastery = (function (srcData) {
 			checked[i].click();
 		}
 	}
+	function export_base() {
+		let cache = {
+			"config_mastered": config_mastered,
+			"config_founder": config_founder,
+			"items" : {}
+		};
+		
+		//JSON stringify treats TypedArrays as objects which triples output size
+		//so first, convert to generics
+		let keys = Object.keys(state);
+		let I = keys.length;
+		for (let i = 0; i < I; i++) {
+			cache.items[keys[i]] = Array.from(state[keys[i]]);
+		}
+		
+		return JSON.stringify(cache);
+	}
 	function save() {
 		if (can_save) {
-			let cache = {
-				"config_mastered": config_mastered,
-				"config_founder": config_founder,
-				"items" : {}
-			};
-			
-			//JSON stringify treats TypedArrays as objects which triples output size
-			//so first, convert to generics
-			let keys = Object.keys(state);
-			let I = keys.length;
-			for (let i = 0; i < I; i++) {
-				cache.items[keys[i]] = Array.from(state[keys[i]]);
-			}
-			
-			window.localStorage.setItem("state", JSON.stringify(cache));
+			window.localStorage.setItem("state", export_base());
 		} else {
 			console.log("wutrudoin callin save() after init failed to find localStorage and disabled the button");
 		}
 	}
-	function load() {
-		if (can_save) {
-			let s = JSON.parse(window.localStorage.getItem("state"));
-			
-			document.getElementById("config_reset").click();
-			
-			if (s.config_mastered) {
-				document.getElementById("config_mastered").click();
-			}
-			if (s.config_founder) {
-				document.getElementById("config_founder").click();
-			}
-			
-			let keys = Object.keys(s.items);
-			let I = keys.length;
-			for (let i = 0; i < I; i++) {
-				let category = s.items[keys[i]];
-				let J = category.length;
-				for (let j = 0; j < J; j++) {
-					if (category[j]) {
-						let e = document.getElementById("i_" + keys[i] + "_" + j);
-						if (e) {
-							e.click();
-						}
+	function load_base(input) {
+		let s = JSON.parse(input);
+		
+		document.getElementById("config_reset").click();
+		
+		if (s.config_mastered) {
+			document.getElementById("config_mastered").click();
+		}
+		if (s.config_founder) {
+			document.getElementById("config_founder").click();
+		}
+		
+		let keys = Object.keys(s.items);
+		let I = keys.length;
+		for (let i = 0; i < I; i++) {
+			let category = s.items[keys[i]];
+			let J = category.length;
+			for (let j = 0; j < J; j++) {
+				if (category[j]) {
+					let e = document.getElementById("i_" + keys[i] + "_" + j);
+					if (e) {
+						e.click();
 					}
 				}
 			}
-			
+		}
+	}
+	function load() {
+		if (can_save) {
+			load_base(window.localStorage.getItem("state"));
 		} else {
 			console.log("wutrudoin callin load() after init failed to find localStorage and disabled the button");
 		}
