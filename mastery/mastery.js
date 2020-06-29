@@ -84,7 +84,7 @@ WFMastery = (function (srcData) {
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
 	function create_category(category, length) {
-		document.body.innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
 	}
 	function initLayout() {
 		let I = data.categories.length;
