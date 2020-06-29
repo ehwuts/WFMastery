@@ -1,21 +1,31 @@
 WFMastery = (function (srcData) {
-	data = {};
-	o = {};
-	config_mastered = false;
-	config_founder = false;
+	var data = {};
+	var o = {};
+	var config_mastered = false;
+	var config_founder = false;
+	
+	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder);}
 	
 	function toggle(e) {
-		t = e.target;
-		if (t.classList.contains("checked")) {
-			t.classList.remove("checked");
-			return false;
+		var result = false;
+		var t = e.target;
+		var classes = t.classList;
+		if (classes.contains("checked")) {
+			classes.remove("checked");
 		} else {
-			t.classList.add("checked");
-			if (config_mastered && !(config_founder && t.classList.contains("founder"))) {
-				t.classList.add("hide");
+			classes.add("checked");
+			if (config_mastered && !(config_founder && classes.contains("founder"))) {
+				classes.add("hide");
 			}
-			return true;
+			result = true;
 		}
+		if (!classes.contains("config")) {
+			var counter = t.parentElement.children[2];
+			var counted = counter.innerText.split("/");
+			counted[0] = (counted[0]|0) + (result ? 1 : -1);
+			counter.innerText = counted[0] + "/" + counted[1];
+		}
+		return result;
 	}
 	
 	//whee code duplication
@@ -44,10 +54,41 @@ WFMastery = (function (srcData) {
 		}
 	}
 	
+	function create_button(category, item) {
+		var e = document.getElementById("c_" + category);
+		var id = "i_" + category + "_" + item[1];
+		var classes = "button";
+		if (item[2]) {
+			classes += " " + item[2].join(" ");
+		}
+		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
+	}
+	function create_category(category, length) {
+		document.body.innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
+	}
+	function initLayout() {
+		let I = data.categories.length;
+		for (let i = 0; i < I; i++) {
+			data.categories[i].items.sort();
+			let J = data.categories[i].items.length;
+			create_category(data.categories[i].category, J);
+			for (let j = 0; j < J; j++) {
+				create_button(data.categories[i].category, data.categories[i].items[j]);
+			}
+		}
+		var buttons = document.getElementsByClassName("button");
+		I = buttons.length;
+		for (let i = 0; i < I; i++) {
+			buttons[i].onclick = toggle;
+		}
+		document.getElementById("config_founder").onclick = toggle_founder;
+		document.getElementById("config_mastered").onclick = toggle_mastered;
+	}
+	
 	function initData() {
 		try {
 			data = this.response;
-			//console.log(test);
+			initLayout();
 		} catch (e) {
 			console.log("Failed to load item lists, panic!");
 			console.log(e);
@@ -55,9 +96,6 @@ WFMastery = (function (srcData) {
 	}
 	
 	o.init = function () {
-		document.getElementById("config_founder").onclick = toggle_founder;
-		document.getElementById("config_mastered").onclick = toggle_mastered;
-		
 		var request = new XMLHttpRequest();
 		request.open("GET", srcData);
 		request.responseType = "json";

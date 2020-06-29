@@ -1,9 +1,13 @@
 body { background-color: #333; }
+.category { color: #fff; }
+hr { border: none; border-top: 1px solid #999; }
 
 .button {
+	/*flex: auto;
+	align-self: stretch;*/
 	display: inline-block;
 	user-select: none;
-	width: 100px; 
+	width: 150px; 
 	text-align: center; 
 	border-width: 1px;
 	border-style: solid;
@@ -22,4 +26,4 @@ div.checked {
 .hide { display: none; }
 div.config { display: inline-block; }
 
-.test {border: 1px solid black; width: 120px;}
+/*.category { display: flex; flex-flow: row wrap; }*/
