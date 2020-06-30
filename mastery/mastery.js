@@ -154,6 +154,11 @@ WFMastery = (function (srcData) {
 		for (let i = checked.length - 1; i >= 0; i--) {
 			checked[i].click();
 		}
+		let keys = Object.keys(state_sliders);
+		let I = keys.length;
+		for (let i = 0; i < I; i++) {
+			fudge_slider(keys[i], 0);
+		}
 	}
 	function serialize_base() {
 		let cache = {
