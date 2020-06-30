@@ -40,7 +40,11 @@ WFMastery = (function (srcData) {
 			counted[0] = (counted[0]|0) + (result ? 1 : -1);
 			counter.innerText = counted[0] + "/" + counted[1];
 			if (category) {
-				update_mastery_gained(result ? categories[category] : - categories[category]);
+				delta = result ? categories[category] : - categories[category];
+				if (classes.contains("r40")) {
+					delta *= 4 / 3;
+				}
+				update_mastery_gained(delta);
 				state[category][ident[2]] = result ? 1 : 0;
 			}
 		}
@@ -259,6 +263,9 @@ WFMastery = (function (srcData) {
 			state[category] = new Int8Array(J).fill(0);
 			
 			for (let j = 0; j < J; j++) {
+				if (items[j][2] && items[j][2].indexOf("r40") !== -1) {
+					mastery_possible += data.categories[i].mastery / 3;
+				}
 				create_button(category, items[j]);
 				completion_possible ++;
 			}
