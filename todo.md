@@ -2,10 +2,17 @@
 
 ## General
 
--   [ ] fix the rank 40 weapons thinking they're worth 3k when they're worth 4k
+-   [x] Clickable buttons for masterable items
+-   [x] Toggle setting to hide/show items marked Mastered
+-   [x] Toggle setting to hide/show Founder exclusives
+-   [x] Save/Load to local browser storage
+-   [x] Import/Export from text string
+-   [ ] Count nonstandard max rank items as having different Mastery Point value
 
 ## Summary
 
+-   [x] Show latest patch this tracker updated items to
+-   [x] Show total Mastery Points gained
 -   [ ] Total items completion counter
 -   [ ] Weapons to next Mastery Rank teaser
 
