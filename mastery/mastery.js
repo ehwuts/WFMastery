@@ -2,6 +2,7 @@ WFMastery = (function (srcData) {
 	var data = {};
 	var categories = {};
 	var o = {};
+	var element_completion_gained = null;
 	var config_mastered = false;
 	var config_founder = false;
 	var show_code = false;
@@ -36,7 +37,7 @@ WFMastery = (function (srcData) {
 		if (!classes.contains("config")) {
 			let direction = (result ? 1 : -1);
 			completion_gained += direction;
-			document.getElementById("completion_gained").innerText = completion_gained;
+			element_completion_gained.innerText = completion_gained;
 			if (category) {
 				state_categories[category].current += direction;
 				t.parentElement.children[1].children[1].innerText = state_categories[category].current + "/" + state_categories[category].max;
@@ -352,6 +353,9 @@ WFMastery = (function (srcData) {
 			e.onclick = undefined;
 			e.classList.add("hide");
 		}
+		
+		//cache this element since profiling showed its lookup was devouring time
+		element_completion_gained = document.getElementById("completion_gained");
 	}
 
 	function initData() {
