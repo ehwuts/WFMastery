@@ -109,6 +109,19 @@ WFMastery = (function (srcData) {
 	function update_mastery_gained(delta) {
 		mastery_gained += delta;
 		document.getElementById("mastery_gained").innerText = mastery_gained;
+		let rank_gained = rank_from_mastery(mastery_gained);
+		let rank_need = mastery_from_rank(rank_gained + 1) - mastery_gained;
+		let estimate = Math.ceil(rank_need / 3000);
+		document.getElementById("rank_gained").innerText = rank_gained;
+		document.getElementById("rank_need").innerText = "(" + rank_need + " points until MR" + (rank_gained + 1) + ", roughly " + estimate + " weapon" +(estimate == 1 ? "" : "s")+")";
+		
+	}
+	
+	function rank_from_mastery(x) {
+		return Math.floor(Math.sqrt(x / 2500));
+	}
+	function mastery_from_rank(x) {
+		return 2500 * x * x;
 	}
 
 	function reset_entries() {
