@@ -148,7 +148,16 @@ WFMastery = (function (srcData) {
 		}
 	}
 	function deserialize_base(input) {
-		let s = JSON.parse(input);
+		if (!input) {
+			input = "{\"items\":{}}";
+		}
+		try {
+			var s = JSON.parse(input);
+		} catch (e) {
+			console.log("Failed parse save data.");
+			console.log(e);
+			return;
+		}
 		
 		document.getElementById("config_reset").click();
 		
