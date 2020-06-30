@@ -14,6 +14,7 @@
 -   [x] Show latest patch this tracker updated items to
 -   [x] Show total Mastery Points gained
 -   [x] Total items completion counter
+-   [ ] Show total Mastery Rank gained
 -   [ ] Weapons to next Mastery Rank teaser
 
 ## Categories
