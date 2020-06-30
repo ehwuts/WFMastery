@@ -338,6 +338,7 @@ WFMastery = (function (srcData) {
 		I = sliders.length;
 		for (let i = 0; i < I; i++) {
 			sliders[i].onchange = update_slider;
+			sliders[i].oninput = update_slider;
 		}
 		
 		//check that localstorage is even a thing for local persistance
