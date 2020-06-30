@@ -106,9 +106,10 @@ WFMastery = (function (srcData) {
 		let I = category_contents.length;
 		for (let i = 2; i < I; i++) {
 			if (!category_contents[i].classList.contains("checked")) {
-				category_contents[i].click();
+				toggle({ "target": category_contents[i] }, false);
 			}
 		}
+		update_all_summaries();
 	}
 	//wheee code duplication
 	function invert_all(e) {
@@ -117,8 +118,9 @@ WFMastery = (function (srcData) {
 		let category_contents = document.getElementById("c_" + category).children;
 		let I = category_contents.length;
 		for (let i = 2; i < I; i++) {
-			category_contents[i].click();
+			toggle({ "target": category_contents[i] }, false);
 		}
+		update_all_summaries();
 	}
 	function update_slider(e) {
 		let t = e.target;
