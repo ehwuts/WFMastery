@@ -18,7 +18,7 @@ WFMastery = (function (srcData) {
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
 	o.getState = () => { return state; }
 
-	function toggle(e) {
+	function toggle(e, redraw = true) {
 		var result = false;
 		var t = e.target;
 		var ident = t.id.split("_");
@@ -34,22 +34,35 @@ WFMastery = (function (srcData) {
 			}
 			result = true;
 		}
-		if (!classes.contains("config")) {
+		if (!classes.contains("config") && category) {
 			let direction = (result ? 1 : -1);
 			completion_gained += direction;
-			element_completion_gained.innerText = completion_gained;
-			if (category) {
-				state_categories[category].current += direction;
+			state_categories[category].current += direction;
+			state[category][ident[2]] = result ? 1 : 0;
+			
+			let delta = result ? categories[category] : - categories[category];
+			if (classes.contains("r40")) {
+				delta *= 4 / 3;
+			}
+			mastery_gained += delta;
+			
+			if (redraw) {
+				update_mastery_display();
+				element_completion_gained.innerText = completion_gained;
 				document.getElementById("category_" + category + "_gained").innerText = state_categories[category].current;
-				let delta = result ? categories[category] : - categories[category];
-				if (classes.contains("r40")) {
-					delta *= 4 / 3;
-				}
-				update_mastery_gained(delta);
-				state[category][ident[2]] = result ? 1 : 0;
 			}
 		}
 		return result;
+	}
+	function update_all_summaries() {
+		element_completion_gained.innerText = completion_gained;
+		update_mastery_display();
+		
+		let keys = Object.keys(state_categories);
+		let I = keys.length;
+		for (let i = 0; i < I; i++) {
+			document.getElementById("category_" + keys[i] + "_gained").innerText = state_categories[keys[i]].current;
+		}
 	}
 
 	//whee code duplication
@@ -125,15 +138,15 @@ WFMastery = (function (srcData) {
 		}
 		
 		state_sliders[parts[1]].value = t.value;
-		update_mastery_gained(points_new - points_old);
+		mastery_gained += (points_new - points_old);
+		update_mastery_display();
 	}
 	function fudge_slider(name, value) {
 		let t = document.getElementById("slider_" + name);
 		t.value = value;
 		update_slider({ "target": t });
 	}
-	function update_mastery_gained(delta) {
-		mastery_gained += delta;
+	function update_mastery_display() {
 		document.getElementById("mastery_gained").innerText = mastery_gained;
 		let rank_gained = rank_from_mastery(mastery_gained);
 		let rank_need = mastery_from_rank(rank_gained + 1) - mastery_gained;
