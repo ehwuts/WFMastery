@@ -7,6 +7,8 @@ WFMastery = (function (srcData) {
 	var show_code = false;
 	var mastery_possible = 0;
 	var mastery_gained = 0;
+	var completion_possible = 0;
+	var completion_gained = 0;
 	var can_save = false;
 	var state_sliders = {};
 	var state = {};
@@ -33,6 +35,8 @@ WFMastery = (function (srcData) {
 		if (!classes.contains("config")) {
 			var counter = t.parentElement.children[2];
 			var counted = counter.innerText.split("/");
+			completion_gained += (result ? 1 : -1);
+			document.getElementById("completion_gained").innerText = completion_gained;
 			counted[0] = (counted[0]|0) + (result ? 1 : -1);
 			counter.innerText = counted[0] + "/" + counted[1];
 			if (category) {
@@ -234,8 +238,10 @@ WFMastery = (function (srcData) {
 			
 			for (let j = 0; j < J; j++) {
 				create_button(category, items[j]);
+				completion_possible ++;
 			}
 		}
+		document.getElementById("completion_possible").innerText = completion_possible;
 		
 		I = data.sliders.length;
 		for (let i = 0; i < I; i++) {
