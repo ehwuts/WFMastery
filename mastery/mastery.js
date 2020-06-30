@@ -96,6 +96,16 @@ WFMastery = (function (srcData) {
 			}
 		}
 	}
+	//wheee code duplication
+	function invert_all(e) {
+		let t = e.target;
+		let category = t.id.split("_")[2];
+		let category_contents = document.getElementById("c_" + category).children;
+		let I = category_contents.length;
+		for (let i = 2; i < I; i++) {
+			category_contents[i].click();
+		}
+	}
 	function update_slider(e) {
 		let t = e.target;
 		let parts = t.id.split("_");
@@ -244,7 +254,7 @@ WFMastery = (function (srcData) {
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
 	function create_category(category, length) {
-		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div></div></div>";
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
@@ -314,6 +324,7 @@ WFMastery = (function (srcData) {
 		I = keys.length;
 		for (let i = 0; i < I; i++) {
 			document.getElementById("config_all_" + keys[i]).onclick = select_all;
+			document.getElementById("config_invert_" + keys[i]).onclick = invert_all;
 		}
 		
 		var sliders = document.getElementsByClassName("slider");
