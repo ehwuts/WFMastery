@@ -22,6 +22,7 @@
 -   [ ] Hide category entirely if "Hide Mastered" is on and the entire category is complete
 -   [x] "Select All" button per category
 -   [x] "Invert Selection" button per category
+-   [x] Make those category buttons not effect founder items when "Hide Founder" is checked
 
 ## Sliders
 

@@ -105,7 +105,8 @@ WFMastery = (function (srcData) {
 		let category_contents = document.getElementById("c_" + category).children;
 		let I = category_contents.length;
 		for (let i = 2; i < I; i++) {
-			if (!category_contents[i].classList.contains("checked")) {
+			let classes= category_contents[i].classList;
+			if (!classes.contains("checked") && (!config_founder || !classes.contains("founder"))) {
 				toggle({ "target": category_contents[i] }, false);
 			}
 		}
@@ -118,7 +119,9 @@ WFMastery = (function (srcData) {
 		let category_contents = document.getElementById("c_" + category).children;
 		let I = category_contents.length;
 		for (let i = 2; i < I; i++) {
-			toggle({ "target": category_contents[i] }, false);
+			if (!config_founder || !category_contents[i].classList.contains("founder")) {
+				toggle({ "target": category_contents[i] }, false);
+			}
 		}
 		update_all_summaries();
 	}
