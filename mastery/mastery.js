@@ -33,7 +33,7 @@ WFMastery = (function (srcData) {
 			result = true;
 		}
 		if (!classes.contains("config")) {
-			var counter = t.parentElement.children[2];
+			var counter = t.parentElement.children[1].children[1];
 			var counted = counter.innerText.split("/");
 			completion_gained += (result ? 1 : -1);
 			document.getElementById("completion_gained").innerText = completion_gained;
@@ -83,6 +83,17 @@ WFMastery = (function (srcData) {
 			classes.remove("hide");
 		} else {
 			classes.add("hide");
+		}
+	}
+	function select_all(e) {
+		let t = e.target;
+		let category = t.id.split("_")[2];
+		let category_contents = document.getElementById("c_" + category).children;
+		let I = category_contents.length;
+		for (let i = 2; i < I; i++) {
+			if (!category_contents[i].classList.contains("checked")) {
+				category_contents[i].click();
+			}
 		}
 	}
 	function update_slider(e) {
@@ -233,7 +244,7 @@ WFMastery = (function (srcData) {
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
 	function create_category(category, length) {
-		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span><br></div>";
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div></div></div>";
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
@@ -299,6 +310,12 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_import").onclick = import_state;
 		document.getElementById("config_show_code").onclick = toggle_show_code;
 		
+		let keys = Object.keys(state);
+		I = keys.length;
+		for (let i = 0; i < I; i++) {
+			document.getElementById("config_all_" + keys[i]).onclick = select_all;
+		}
+		
 		var sliders = document.getElementsByClassName("slider");
 		I = sliders.length;
 		for (let i = 0; i < I; i++) {
@@ -325,7 +342,7 @@ WFMastery = (function (srcData) {
 			data = this.response;
 			initLayout();
 		} catch (e) {
-			console.log("Failed to load item lists, panic!");
+			console.log("Error during initialization, panic!");
 			console.log(e);
 		}
 	}

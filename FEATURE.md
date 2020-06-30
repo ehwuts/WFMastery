@@ -20,7 +20,7 @@
 ## Categories
 
 -   [ ] Hide category entirely if "Hide Mastered" is on and the entire category is complete
--   [ ] "Select All" button per category
+-   [x] "Select All" button per category
 -   [ ] "Invert Selection" button per category
 
 ## Sliders
