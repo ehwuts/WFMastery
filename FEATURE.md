@@ -20,7 +20,8 @@
 ## Categories
 
 -   [ ] Hide category entirely if "Hide Mastered" is on and the entire category is complete
--   [ ] Toggles to "select/deselect all" per category
+-   [ ] "Select All" button per category
+-   [ ] "Invert Selection" button per category
 
 ## Sliders
 
