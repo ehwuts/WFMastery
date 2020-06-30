@@ -23,6 +23,16 @@ div.checked {
 	color: #ff9;	
 }
 
+div.button.config {
+	border-color: #70b;
+	background-color: #103;
+}
+div.button.config.checked {
+	border-color: #c0f;
+	background-color: #407;
+	color: #eee;
+}
+
 #warning { background-color: #804; }
 
 .hide { display: none; }
