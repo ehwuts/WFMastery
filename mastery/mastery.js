@@ -168,8 +168,9 @@ WFMastery = (function (srcData) {
 	function reset_entries() {
 		let checked = document.getElementsByClassName("checked");
 		for (let i = checked.length - 1; i >= 0; i--) {
-			checked[i].click();
+			toggle({ "target": checked[i] }, false);
 		}
+		update_all_summaries();
 		let keys = Object.keys(state_sliders);
 		let I = keys.length;
 		for (let i = 0; i < I; i++) {
