@@ -23,6 +23,8 @@ div.checked {
 	color: #ff9;	
 }
 
+#warning { background-color: #804; }
+
 .hide { display: none; }
 #wrap_code { position: absolute; left: 5px; top:40px; padding: 10px;  background-color: #000; }
 #config_code { min-width: 25em; min-height: 5em; }
