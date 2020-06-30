@@ -237,11 +237,12 @@ WFMastery = (function (srcData) {
 				if (category[j]) {
 					let e = document.getElementById("i_" + keys[i] + "_" + j);
 					if (e) {
-						e.click();
+						toggle({ "target": e }, false);
 					}
 				}
 			}
 		}
+		update_all_summaries();
 		if (s.sliders) {
 			keys = Object.keys(s.sliders);
 			I = keys.length;
