@@ -7,7 +7,7 @@
 -   [x] Toggle setting to hide/show Founder exclusives
 -   [x] Save/Load to local browser storage
 -   [x] Import/Export from text string
--   [ ] Count nonstandard max rank items as having different Mastery Point value
+-   [x] Count nonstandard max rank items as having different Mastery Point value
 
 ## Summary
 
