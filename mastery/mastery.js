@@ -40,7 +40,7 @@ WFMastery = (function (srcData) {
 			element_completion_gained.innerText = completion_gained;
 			if (category) {
 				state_categories[category].current += direction;
-				t.parentElement.children[1].children[1].innerText = state_categories[category].current + "/" + state_categories[category].max;
+				document.getElementById("category_" + category + "_gained").innerText = state_categories[category].current;
 				let delta = result ? categories[category] : - categories[category];
 				if (classes.contains("r40")) {
 					delta *= 4 / 3;
@@ -260,7 +260,7 @@ WFMastery = (function (srcData) {
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
 	function create_category(category) {
-		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + state_categories[category].max + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span id=\"category_" + category + "_gained\">" + 0 + "</span>/<span id=\"category_"+ category +"_possible\">" + state_categories[category].max + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
