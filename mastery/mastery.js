@@ -11,6 +11,7 @@ WFMastery = (function (srcData) {
 	var completion_gained = 0;
 	var can_save = false;
 	var state_sliders = {};
+	var state_categories = {};
 	var state = {};
 
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
@@ -33,14 +34,13 @@ WFMastery = (function (srcData) {
 			result = true;
 		}
 		if (!classes.contains("config")) {
-			var counter = t.parentElement.children[1].children[1];
-			var counted = counter.innerText.split("/");
-			completion_gained += (result ? 1 : -1);
+			let direction = (result ? 1 : -1);
+			completion_gained += direction;
 			document.getElementById("completion_gained").innerText = completion_gained;
-			counted[0] = (counted[0]|0) + (result ? 1 : -1);
-			counter.innerText = counted[0] + "/" + counted[1];
 			if (category) {
-				delta = result ? categories[category] : - categories[category];
+				state_categories[category].current += direction;
+				t.parentElement.children[1].children[1].innerText = state_categories[category].current + "/" + state_categories[category].max;
+				let delta = result ? categories[category] : - categories[category];
 				if (classes.contains("r40")) {
 					delta *= 4 / 3;
 				}
@@ -258,8 +258,8 @@ WFMastery = (function (srcData) {
 		}
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
-	function create_category(category, length) {
-		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + length + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
+	function create_category(category) {
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span class=\"category_counter\">" + 0 + "/" + state_categories[category].max + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
@@ -280,7 +280,8 @@ WFMastery = (function (srcData) {
 			
 			let J = items.length;			
 			mastery_possible += data.categories[i].mastery * J;
-			create_category(category, J);
+			state_categories[category] = { "current": 0, "max": J };
+			create_category(category);
 			
 			if (typeof state[category] !== "undefined") {
 				console.log("Warning: Duplicate item category '" + category + "' during initialization. This WILL break things.");
