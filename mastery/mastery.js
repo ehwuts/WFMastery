@@ -223,6 +223,7 @@ WFMastery = (function (srcData) {
 	}
 	function deserialize_base(input) {
 		if (!input) {
+			//input = "{\"items\":{}}";
 			return;
 		}
 		try {
