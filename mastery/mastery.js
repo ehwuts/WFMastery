@@ -167,6 +167,17 @@ WFMastery = (function (srcData) {
 	function mastery_from_rank(x) {
 		return 2500 * x * x;
 	}
+	function sort_items(a, b) {
+		a = a[0].toLowerCase();
+		b = b[0].toLowerCase();
+		if (a == b) {
+			return 0;
+		} else if (a.startsWith(b) || b < a) {
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 
 	function reset_entries() {
 		let checked = document.getElementsByClassName("checked");
@@ -297,7 +308,7 @@ WFMastery = (function (srcData) {
 			//bookkeeping helper
 			categories[category] = data.categories[i].mastery;
 			//alphabeticize the data
-			items.sort();
+			items.sort(sort_items);
 			
 			let J = items.length;			
 			mastery_possible += data.categories[i].mastery * J;
