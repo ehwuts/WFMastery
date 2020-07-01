@@ -34,6 +34,7 @@ div.button.config.checked {
 }
 
 #warning { background-color: #804; }
+#save_notice { position: absolute; top: 0px; margin-top: -50px; background-color: #000; width: 98%; text-align: center; }
 
 .hide { display: none; }
 #wrap_code { position: absolute; left: 5px; top:40px; padding: 10px;  background-color: #000; }

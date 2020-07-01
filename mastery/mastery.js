@@ -14,6 +14,7 @@ WFMastery = (function (srcData) {
 	var state_sliders = {};
 	var state_categories = {};
 	var state = {};
+	var save_notice_ticker = null;
 
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
 	o.getState = () => { return state; }
@@ -214,9 +215,26 @@ WFMastery = (function (srcData) {
 		
 		return JSON.stringify(cache);
 	}
+	function tick_save_notice() {
+		let e = document.getElementById("save_notice");
+		let x = e.style.marginTop;
+		x = (x.substring(0, x.length - 2)|0) - 1;
+		e.style.marginTop = x + "px";
+		console.log(x);
+		if (x < -20) {
+			clearTimeout(save_notice_ticker);
+		}
+	}
+	function save_notice() {
+		document.getElementById("save_notice").style.marginTop = "0px";
+		if (save_notice_ticker === null) {
+			save_notice_ticker = setInterval(tick_save_notice, 100);
+		}
+	}
 	function save() {
 		if (can_save) {
 			window.localStorage.setItem("state", serialize_base());
+			save_notice();
 		} else {
 			console.log("wutrudoin callin save() after init failed to find localStorage and disabled the button");
 		}

@@ -8,6 +8,7 @@
 -   [x] Save/Load to local browser storage
 -   [x] Import/Export from text string
 -   [x] Count nonstandard max rank items as having different Mastery Point value
+-   [x] Visual response to local save
 
 ## Summary
 
