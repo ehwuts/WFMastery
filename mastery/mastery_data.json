@@ -559,11 +559,11 @@
 			"category": "Kubrows",
 			"mastery": 6000,
 			"items": [
-				["Huras", 0],
-				["Raksa", 1],
-				["Sahasa", 2],
-				["Sunika", 3],
-				["Chesa", 4],
+				["Huras Kubrow", 0],
+				["Raksa Kubrow", 1],
+				["Sahasa Kubrow", 2],
+				["Sunika Kubrow", 3],
+				["Chesa Kubrow", 4],
 				["Helminth Charger", 5]
 			]
 		},
@@ -571,9 +571,9 @@
 			"category": "Kavats",
 			"mastery": 6000,
 			"items": [
-				["Adarza", 0],
-				["Smeeta", 1],
-				["Vasca", 2],
+				["Adarza Kavat", 0],
+				["Smeeta Kavat", 1],
+				["Vasca Kavat", 2],
 				["Venari", 3]
 			]
 		},
