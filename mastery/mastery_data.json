@@ -581,10 +581,10 @@
 			"category": "MOAs",
 			"mastery": 6000,
 			"items": [
-				["Lambeo", 0],
-				["Oloro", 1],
-				["Para", 2],
-				["Nychus", 3]
+				["Lambeo MOA", 0],
+				["Oloro MOA", 1],
+				["Para MOA", 2],
+				["Nychus MOA", 3]
 			]
 		},
 		{
