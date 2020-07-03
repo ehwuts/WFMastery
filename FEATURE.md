@@ -9,6 +9,9 @@
 -   [x] Import/Export from text string
 -   [x] Count nonstandard max rank items as having different Mastery Point value
 -   [x] Visual response to local save
+-   [ ] Support the language sets
+-   [ ] Make Hide Founders also hide their contributions to summaries
+-   [ ] Add China exclusives with same features as Founders toggle
 
 ## Summary
 
