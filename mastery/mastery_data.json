@@ -16,6 +16,16 @@
 			"name": "Intrinsics",
 			"count": 40,
 			"value": 1500
+		}, 
+		{
+			"name": "Steel Path Missions",
+			"count": 232,
+			"total": 14501		
+		},
+		{
+			"name": "Steel Path Junctions",
+			"count": 13,
+			"value": 1000
 		}
 	],
 	"categories": [
