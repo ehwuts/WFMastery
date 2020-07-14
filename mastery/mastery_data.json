@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "28.1",
+	"patch": "28.2.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -104,7 +104,8 @@
 				["Grendel", 68],
 				["Ivara Prime", 69],
 				["Titania Prime", 70],
-				["Protea", 71]
+				["Protea", 71],
+				["Inaros Prime", 72]
 			]
 		},
 		{
@@ -244,7 +245,8 @@
 				["Zarr", 130],
 				["Zenith", 131],
 				["Zhuge", 132],
-				["Zhuge Prime", 133]
+				["Zhuge Prime", 133],
+				["Panthera Prime", 134]
 			]
 		},
 		{
@@ -521,7 +523,8 @@
 				["War", 152],
 				["Wolf Sledge", 153],
 				["Xoris", 154],
-				["Zenistar", 155]
+				["Zenistar", 155],
+				["Karyst Prime", 156]
 			]
 		},
 		{
