@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "28.2.0",
+	"patch": "28.2.1",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -361,7 +361,8 @@
 				["Viper", 105],
 				["Viper Wraith", 106],
 				["Zakti", 107],
-				["Zylok", 108]
+				["Zylok", 108],
+				["Athodai", 109]
 			]
 		},
 		{
