@@ -1,10 +1,10 @@
 {
 	"schema": 1.2,
-	"patch": "28.2.1",
+	"patch": "29.0.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
-			"count": 232,
+			"count": 233,
 			"total": 14501
 		},
 		{
@@ -19,7 +19,7 @@
 		}, 
 		{
 			"name": "Steel Path Missions",
-			"count": 232,
+			"count": 233,
 			"total": 14501		
 		},
 		{
@@ -105,7 +105,8 @@
 				["Ivara Prime", 69],
 				["Titania Prime", 70],
 				["Protea", 71],
-				["Inaros Prime", 72]
+				["Inaros Prime", 72],
+				["Xaku", 73]
 			]
 		},
 		{
@@ -246,7 +247,8 @@
 				["Zenith", 131],
 				["Zhuge", 132],
 				["Zhuge Prime", 133],
-				["Panthera Prime", 134]
+				["Panthera Prime", 134],
+				["Trumna", 135]
 			]
 		},
 		{
@@ -362,7 +364,9 @@
 				["Viper Wraith", 106],
 				["Zakti", 107],
 				["Zylok", 108],
-				["Athodai", 109]
+				["Athodai", 109],
+				["Sepulcrum", 110],
+				["Zymos", 111]
 			]
 		},
 		{
@@ -525,7 +529,9 @@
 				["Wolf Sledge", 153],
 				["Xoris", 154],
 				["Zenistar", 155],
-				["Karyst Prime", 156]
+				["Karyst Prime", 156],
+				["Keratinos", 157],
+				["Quassus", 158]
 			]
 		},
 		{
@@ -670,7 +676,9 @@
 				["Kuva Ayanga", 7, ["r40"]],
 				["Larkspur", 8],
 				["Phaedra", 9],
-				["Velocitus", 10]
+				["Velocitus", 10],
+				["Cortege", 11],
+				["Mausolon", 12]
 			]
 		},
 		{
@@ -695,6 +703,31 @@
 				["Flatbelly", 1],
 				["Needlenose", 2],
 				["Runway", 3]
+			]
+		},
+		{
+			"category": "Necramech",
+			"mastery": 6000,
+			"items": [
+				["Voidrig Necramech", 0]
+			]
+		},
+		{
+			"category": "Predasite",
+			"mastery": 6000,
+			"items": [
+				["Vizier Predasite", 0],
+				["Medjay Predasite", 1],
+				["Pharaoh Predasite", 2]
+			]
+		},
+		{
+			"category": "Vulpaphyla",
+			"mastery": 6000,
+			"items": [
+				["Crescent Vulpaphyla", 0],
+				["Panzer Vulpaphyla", 1],
+				["Sly Vulpaphyla", 2]
 			]
 		}
 	]
