@@ -723,8 +723,8 @@
 			"category": "Necramech",
 			"mastery": 6000,
 			"items": [
-				["Voidrig Necramech", 0],
-				["Bonewidow Necramech",1]
+				["Voidrig Necramech", 0, ["r40"]],
+				["Bonewidow Necramech", 1, ["r40"]]
 			]
 		},
 		{
