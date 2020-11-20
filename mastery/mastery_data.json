@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "29.0.0",
+	"patch": "29.5.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -20,7 +20,7 @@
 		{
 			"name": "Steel Path Missions",
 			"count": 233,
-			"total": 14501		
+			"total": 14501
 		},
 		{
 			"name": "Steel Path Junctions",
@@ -106,7 +106,8 @@
 				["Titania Prime", 70],
 				["Protea", 71],
 				["Inaros Prime", 72],
-				["Xaku", 73]
+				["Xaku", 73],
+				["Nezha Prime", 74]
 			]
 		},
 		{
@@ -248,7 +249,10 @@
 				["Zhuge", 132],
 				["Zhuge Prime", 133],
 				["Panthera Prime", 134],
-				["Trumna", 135]
+				["Trumna", 135],
+				["Bubonico", 136],
+				["Proboscis Cernos", 137],
+				["Sporothrix", 138]
 			]
 		},
 		{
@@ -366,7 +370,9 @@
 				["Zylok", 108],
 				["Athodai", 109],
 				["Sepulcrum", 110],
-				["Zymos", 111]
+				["Zymos", 111],
+				["Zakti Prime", 112],
+				["Catabolyst", 113]
 			]
 		},
 		{
@@ -531,7 +537,11 @@
 				["Zenistar", 155],
 				["Karyst Prime", 156],
 				["Keratinos", 157],
-				["Quassus", 158]
+				["Quassus", 158],
+				["Vitrica", 159],
+				["Guandao Prime", 160],
+				["Pulmonars", 161],
+				["Arum Spinosa", 162]
 			]
 		},
 		{
@@ -541,7 +551,9 @@
 				["Catchmoon", 0],
 				["Gaze", 1],
 				["Rattleguts", 2],
-				["Tombfinger", 3]
+				["Tombfinger", 3],
+				["Vermisplicer", 4],
+				["Sporelacer", 5]
 			]
 		},
 		{
@@ -678,7 +690,8 @@
 				["Phaedra", 9],
 				["Velocitus", 10],
 				["Cortege", 11],
-				["Mausolon", 12]
+				["Mausolon", 12],
+				["Morgha", 13]
 			]
 		},
 		{
@@ -702,14 +715,16 @@
 				["Bad Baby", 0],
 				["Flatbelly", 1],
 				["Needlenose", 2],
-				["Runway", 3]
+				["Runway", 3],
+				["Feverspine", 4]
 			]
 		},
 		{
 			"category": "Necramech",
 			"mastery": 6000,
 			"items": [
-				["Voidrig Necramech", 0]
+				["Voidrig Necramech", 0],
+				["Bonewidow Necramech",1]
 			]
 		},
 		{
