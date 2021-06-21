@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "29.10.0",
+	"patch": "30.0.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -109,7 +109,8 @@
 				["Xaku", 73],
 				["Nezha Prime", 74],
 				["Lavos", 75],
-				["Octavia Prime", 76]
+				["Octavia Prime", 76],
+				["Sevagoth", 77]
 			]
 		},
 		{
@@ -257,7 +258,8 @@
 				["Sporothrix", 138],
 				["Cedo", 139],
 				["Tenora Prime", 140],
-				["Carmine Penta", 141]
+				["Carmine Penta", 141],
+				["Epitaph", 142]
 			]
 		},
 		{
