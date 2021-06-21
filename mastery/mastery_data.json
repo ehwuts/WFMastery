@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "29.9.0",
+	"patch": "29.10.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -14,7 +14,7 @@
 		},
 		{
 			"name": "Intrinsics",
-			"count": 40,
+			"count": 50,
 			"value": 1500
 		}, 
 		{
@@ -256,7 +256,8 @@
 				["Proboscis Cernos", 137],
 				["Sporothrix", 138],
 				["Cedo", 139],
-				["Tenora Prime", 140]
+				["Tenora Prime", 140],
+				["Carmine Penta", 141]
 			]
 		},
 		{
@@ -641,7 +642,8 @@
 				["Prisma Shade", 10],
 				["Taxon", 11],
 				["Wyrm", 12],
-				["Wyrm Prime", 13]
+				["Wyrm Prime", 13],
+				["Nautilus", 14]
 			]
 		},
 		{
@@ -665,7 +667,8 @@
 				["Sweeper Prime", 14],
 				["Tazicor", 15],
 				["Vulcax", 16],
-				["Vulklok", 17]
+				["Vulklok", 17],
+				["Verglas", 18]
 			]
 		},
 		{
@@ -676,7 +679,8 @@
 				["Amesha", 1],
 				["Elytron", 2],
 				["Itzal", 3],
-				["Odonata Prime", 4]
+				["Odonata Prime", 4],
+				["Plexus*", 5]
 			]
 		},
 		{
