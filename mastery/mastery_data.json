@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "29.5.0",
+	"patch": "29.6.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -107,7 +107,8 @@
 				["Protea", 71],
 				["Inaros Prime", 72],
 				["Xaku", 73],
-				["Nezha Prime", 74]
+				["Nezha Prime", 74],
+				["Lavos", 75]
 			]
 		},
 		{
@@ -252,7 +253,8 @@
 				["Trumna", 135],
 				["Bubonico", 136],
 				["Proboscis Cernos", 137],
-				["Sporothrix", 138]
+				["Sporothrix", 138],
+				["Cedo", 139]
 			]
 		},
 		{
