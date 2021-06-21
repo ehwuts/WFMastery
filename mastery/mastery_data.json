@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "29.6.0",
+	"patch": "29.9.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -108,7 +108,8 @@
 				["Inaros Prime", 72],
 				["Xaku", 73],
 				["Nezha Prime", 74],
-				["Lavos", 75]
+				["Lavos", 75],
+				["Octavia Prime", 76]
 			]
 		},
 		{
@@ -254,7 +255,8 @@
 				["Bubonico", 136],
 				["Proboscis Cernos", 137],
 				["Sporothrix", 138],
-				["Cedo", 139]
+				["Cedo", 139],
+				["Tenora Prime", 140]
 			]
 		},
 		{
@@ -374,7 +376,8 @@
 				["Sepulcrum", 110],
 				["Zymos", 111],
 				["Zakti Prime", 112],
-				["Catabolyst", 113]
+				["Catabolyst", 113],
+				["Pandero Prime", 114]
 			]
 		},
 		{
