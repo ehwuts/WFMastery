@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "30.0.0",
+	"patch": "30.3.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -110,7 +110,8 @@
 				["Nezha Prime", 74],
 				["Lavos", 75],
 				["Octavia Prime", 76],
-				["Sevagoth", 77]
+				["Sevagoth", 77],
+				["Gara Prime", 78]
 			]
 		},
 		{
@@ -259,7 +260,7 @@
 				["Cedo", 139],
 				["Tenora Prime", 140],
 				["Carmine Penta", 141],
-				["Epitaph", 142]
+				["Astilla Prime", 142]
 			]
 		},
 		{
@@ -380,7 +381,8 @@
 				["Zymos", 111],
 				["Zakti Prime", 112],
 				["Catabolyst", 113],
-				["Pandero Prime", 114]
+				["Pandero Prime", 114],
+				["Epitaph", 115]
 			]
 		},
 		{
@@ -549,7 +551,8 @@
 				["Vitrica", 159],
 				["Guandao Prime", 160],
 				["Pulmonars", 161],
-				["Arum Spinosa", 162]
+				["Arum Spinosa", 162],
+				["Volnus Prime", 163]
 			]
 		},
 		{
