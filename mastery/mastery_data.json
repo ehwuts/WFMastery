@@ -678,6 +678,13 @@
 			]
 		},
 		{
+			"category": "Plexus",
+			"mastery": 6000,
+			"items": [
+				["Plexus", 0]
+			]
+		},
+		{
 			"category": "Archwings",
 			"mastery": 6000,
 			"items": [
@@ -685,8 +692,7 @@
 				["Amesha", 1],
 				["Elytron", 2],
 				["Itzal", 3],
-				["Odonata Prime", 4],
-				["Plexus*", 5]
+				["Odonata Prime", 4]
 			]
 		},
 		{
