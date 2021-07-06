@@ -1,6 +1,6 @@
 {
 	"schema": 1.2,
-	"patch": "30.3.5",
+	"patch": "30.5.0",
 	"sliders": [
 		{ 
 			"name": "Missions",
@@ -111,7 +111,8 @@
 				["Lavos", 75],
 				["Octavia Prime", 76],
 				["Sevagoth", 77],
-				["Gara Prime", 78]
+				["Gara Prime", 78],
+				["Yareli", 79]
 			]
 		},
 		{
@@ -260,7 +261,14 @@
 				["Cedo", 139],
 				["Tenora Prime", 140],
 				["Carmine Penta", 141],
-				["Astilla Prime", 142]
+				["Astilla Prime", 142],
+				["Tenet Envoy", 143, ["r40"]],
+				["Tenet Tetra", 144, ["r40"]],
+				["Tenet Flux Rifle", 145, ["r40"]],
+				["Tenet Arca Plasmor", 146, ["r40"]],
+				["Kuva Hek", 147, ["r40"]],
+				["Kuva Zarr", 148, ["r40"]],
+				["Ambassador", 149]
 			]
 		},
 		{
@@ -382,7 +390,12 @@
 				["Zakti Prime", 112],
 				["Catabolyst", 113],
 				["Pandero Prime", 114],
-				["Epitaph", 115]
+				["Epitaph", 115],
+				["Tenet Diplos", 116, ["r40"]],
+				["Tenet Spirex", 117, ["r40"]],
+				["Tenet Cycron", 118, ["r40"]],
+				["Tenet Detron", 119, ["r40"]],
+				["Kompressa", 120]
 			]
 		},
 		{
@@ -554,7 +567,11 @@
 				["Arum Spinosa", 162],
 				["Halikar Wraith", 163],
 				["Volnus Prime", 164],
-				["Prisma Machete", 165]
+				["Prisma Machete", 165],
+				["Tenet Agendus", 166, ["r40"]],
+				["Tenet Exec", 167, ["r40"]],
+				["Tenet Livia", 168, ["r40"]],
+				["Tenet Grigori", 169, ["r40"]]
 			]
 		},
 		{
@@ -675,7 +692,10 @@
 				["Tazicor", 15],
 				["Vulcax", 16],
 				["Vulklok", 17],
-				["Verglas", 18]
+				["Verglas", 18],
+				["Akaten", 19],
+				["Batoten", 20],
+				["Lacerten", 21]
 			]
 		},
 		{
@@ -714,7 +734,8 @@
 				["Cortege", 11],
 				["Mausolon", 12],
 				["Morgha", 13],
-				["Prisma Dual Decurion", 14]
+				["Prisma Dual Decurion", 14],
+				["Kuva Grattler", 15, ["r40"]]
 			]
 		},
 		{
@@ -766,6 +787,15 @@
 				["Crescent Vulpaphyla", 0],
 				["Panzer Vulpaphyla", 1],
 				["Sly Vulpaphyla", 2]
+			]
+		},
+		{
+			"category": "Hound",
+			"mastery": 6000,
+			"items": [
+				["Hec Hound", 0],
+				["Dorma Hound", 1],
+				["Bhaira Hound", 2]
 			]
 		}
 	]
