@@ -3,17 +3,15 @@ body { background-color: #333; color: #fff; }
 hr { border: none; border-top: 1px solid #999; }
 
 .button {
-	/*flex: auto;
-	align-self: stretch;*/
 	display: inline-block;
 	user-select: none;
-	width: 150px; 
-	text-align: center; 
+	width: 12rem;
+	text-align: center;
 	border-width: 1px;
 	border-style: solid;
 	margin: 1px;
 	padding: 2px;
-	border-color: #888; 
+	border-color: #888;
 	background-color: #000;
 	color: #eee;
 }
@@ -26,6 +24,7 @@ div.checked {
 div.button.config {
 	border-color: #70b;
 	background-color: #103;
+	color: grey;
 }
 div.button.config.checked {
 	border-color: #c0f;
@@ -40,6 +39,16 @@ div.button.config.checked {
 #wrap_code { position: absolute; left: 5px; top:40px; padding: 10px;  background-color: #000; }
 #config_code { min-width: 25em; min-height: 5em; }
 #sliders > div { display: inline-block; text-align: center; border: 1px solid #888; background-color: #000;  }
-/*div.config { display: inline-block; }*/
 
-/*.category { display: flex; flex-flow: row wrap; }*/
+
+.category_name {
+	font-size: larger;
+}
+.category {
+	float: left;
+	width: 14rem;
+	text-align: center;
+}
+.category-size {
+	width: 14rem;
+}
