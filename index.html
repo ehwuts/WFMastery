@@ -5,6 +5,8 @@
 	<title>Mastery Tracker</title>
 	<link rel="icon" type="image/png" href="mastery/mastery_icon.png">
 	<link rel="stylesheet" type="text/css" href="mastery/mastery.css">
+
+	<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
 </head>
 <body>
 <div id="warning"></div>
@@ -17,7 +19,9 @@
 <div id="sliders"></div>
 </div>
 </div>
-<div id="listings"></div>
+
+<div id="listings" class="listings"></div>
+
 <div id="wrap_code" class="hide"><textarea id="config_code"></textarea><br>
 <div class="button config" id="config_export">Export to Text</div><div class="button config" id="config_import">Load from Text</div></div>
 <div id="save_notice">..saved!</div>
