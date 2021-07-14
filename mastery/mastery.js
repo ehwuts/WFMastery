@@ -32,6 +32,11 @@ WFMastery = (function (srcData) {
 			classes.add("checked");
 			if (config_mastered && !classes.contains("config") && !(config_founder && classes.contains("founder"))) {
 				classes.add("hide");
+
+				const remaining = t.parentNode.querySelectorAll(".button:not(.hide,.config)");
+				if (remaining.length == 0) {
+					t.parentNode.classList.add("hide");
+				}
 			}
 			result = true;
 		}
@@ -66,6 +71,18 @@ WFMastery = (function (srcData) {
 		}
 	}
 
+	// hide all categories that have no items to show.
+	function toggle_displayed_categories() {
+		document.querySelectorAll(".category.hide").forEach(function (item, key, listObj) {
+			item.classList.remove("hide")
+		});
+		document.querySelectorAll(".category").forEach(function (item, key, listObj) {
+			if (item.querySelectorAll(".button:not(.hide,.config)").length == 0) {
+				item.classList.add("hide")
+			}
+		});
+	}
+
 	//whee code duplication
 	function toggle_founder(e) {
 		config_founder = toggle(e);
@@ -78,6 +95,7 @@ WFMastery = (function (srcData) {
 				founded[i].classList.remove("hide");
 			}
 		}
+		toggle_displayed_categories();
 	}
 	function toggle_mastered(e) {
 		config_mastered = toggle(e);
@@ -90,7 +108,9 @@ WFMastery = (function (srcData) {
 				mastered[i].classList.remove("hide");
 			}
 		}
+		toggle_displayed_categories();
 	}
+
 	function toggle_show_code(e) {
 		show_code = toggle(e);
 		classes = document.getElementById("wrap_code").classList;
