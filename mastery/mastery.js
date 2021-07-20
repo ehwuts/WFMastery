@@ -204,6 +204,7 @@ WFMastery = (function (srcData) {
 		for (let i = checked.length - 1; i >= 0; i--) {
 			toggle({ "target": checked[i] }, false);
 		}
+		toggle_displayed_categories();
 		update_all_summaries();
 		let keys = Object.keys(state_sliders);
 		let I = keys.length;
