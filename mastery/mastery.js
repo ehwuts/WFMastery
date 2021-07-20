@@ -179,7 +179,6 @@ WFMastery = (function (srcData) {
 		let estimate = Math.ceil(rank_need / 3000);
 		document.getElementById("rank_gained").innerText = rank_gained;
 		document.getElementById("rank_need").innerText = "(" + rank_need + " points until MR" + (rank_gained + 1) + ", roughly " + estimate + " weapon" +(estimate == 1 ? "" : "s")+")";
-		
 	}
 	
 	function rank_from_mastery(x) {
@@ -205,6 +204,7 @@ WFMastery = (function (srcData) {
 		for (let i = checked.length - 1; i >= 0; i--) {
 			toggle({ "target": checked[i] }, false);
 		}
+		toggle_displayed_categories();
 		update_all_summaries();
 		let keys = Object.keys(state_sliders);
 		let I = keys.length;
@@ -330,7 +330,7 @@ WFMastery = (function (srcData) {
 		e.innerHTML += "<div class=\"" + classes + "\" id=\"" + id + "\">" + item[0] + "</div>";
 	}
 	function create_category(category) {
-		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><hr><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span id=\"category_" + category + "_gained\">" + 0 + "</span>/<span id=\"category_"+ category +"_possible\">" + state_categories[category].max + "</span> <div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
+		document.getElementById("listings").innerHTML += "<div class=\"category\" id=\"c_" + category + "\"><br><div class=\"category_header\"><strong class=\"category_name\">" + category + "</strong> - <span id=\"category_" + category + "_gained\">" + 0 + "</span>/<span id=\"category_"+ category +"_possible\">" + state_categories[category].max + "</span><br><div class=\"button config\" id=\"config_all_" + category + "\">Select All</div><div class=\"button config\" id=\"config_invert_" + category + "\">Invert Selections</div></div></div>";
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
