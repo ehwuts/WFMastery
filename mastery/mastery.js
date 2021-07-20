@@ -15,7 +15,6 @@ WFMastery = (function (srcData) {
 	var state_categories = {};
 	var state = {};
 	var save_notice_ticker = null;
-	var msnry = null;
 
 	o.test = function () { console.log("config_mastered", config_mastered, "config_founder", config_founder, "can_save", can_save); }
 	o.getState = () => { return state; }
@@ -180,8 +179,6 @@ WFMastery = (function (srcData) {
 		let estimate = Math.ceil(rank_need / 3000);
 		document.getElementById("rank_gained").innerText = rank_gained;
 		document.getElementById("rank_need").innerText = "(" + rank_need + " points until MR" + (rank_gained + 1) + ", roughly " + estimate + " weapon" +(estimate == 1 ? "" : "s")+")";
-
-		msnry.layout();
 	}
 	
 	function rank_from_mastery(x) {
@@ -447,15 +444,6 @@ WFMastery = (function (srcData) {
 		request.responseType = "json";
 		request.onload = initData;
 		request.send();
-
-		var elem = document.querySelector('.listings');
-		msnry = new Masonry(elem, {
-			// options
-			itemSelector: '.category',
-			columnWidth: '.category-size',
-			horizontalOrder: false,
-			percentPosition: false
-		});
 	}
 
 	return o;

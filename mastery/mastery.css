@@ -35,20 +35,56 @@ div.button.config.checked {
 #warning { background-color: #804; }
 #save_notice { position: absolute; top: 0px; margin-top: -50px; background-color: #000; width: 98%; text-align: center; }
 
-.hide { display: none; }
 #wrap_code { position: absolute; left: 5px; top:40px; padding: 10px;  background-color: #000; }
 #config_code { min-width: 25em; min-height: 5em; }
 #sliders > div { display: inline-block; text-align: center; border: 1px solid #888; background-color: #000;  }
+
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+	.listings {
+		column-count: 2;
+		column-gap: 1em;
+	}
+}
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.listings {
+		column-count: 4;
+		column-gap: 1em;
+	}
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.listings {
+		column-count: 6;
+		column-gap: 1em;
+	}
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 1200px) {
+	.listings {
+		column-count: auto;
+		column-width: 14em;
+		column-gap: 1em;
+	}
+}
 
 
 .category_name {
 	font-size: larger;
 }
 .category {
-	float: left;
-	width: 14rem;
+	display: inline-block;
+	margin: 0 0 1em;
+	width: 100%;
+	-webkit-column-break-inside: avoid;
+	page-break-inside: avoid;
+	break-inside: avoid;
 	text-align: center;
 }
-.category-size {
-	width: 14rem;
+
+.hide {
+	display: none;
 }
