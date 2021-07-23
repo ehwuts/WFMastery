@@ -95,6 +95,27 @@ WFMastery = (function (srcData) {
 				founded[i].classList.remove("hide");
 			}
 		}
+		
+		//painfully lazy hardcoded max count updates for founder hiding
+		let e_W = document.getElementById("category_Warframes_possible");
+		let e_S = document.getElementById("category_Secondaries_possible");
+		let e_M = document.getElementById("category_Melee_possible");
+		let e_P = document.getElementById("completion_possible");
+		let e_PP = document.getElementById("mastery_possible");
+		if (config_founder) {
+			e_W.innerText = (e_W.innerText|0) - 1;
+			e_S.innerText = (e_S.innerText|0) - 1;
+			e_M.innerText = (e_M.innerText|0) - 1;
+			e_P.innerText = (e_P.innerText|0) - 3
+			e_PP.innerText = (e_PP.innerText|0) - 12000;
+		} else {
+			e_W.innerText = (e_W.innerText|0) + 1;
+			e_S.innerText = (e_S.innerText|0) + 1;
+			e_M.innerText = (e_M.innerText|0) + 1;
+			e_P.innerText = (e_P.innerText|0) + 3;
+			e_PP.innerText = (e_PP.innerText|0) + 12000;	
+		}
+		
 		toggle_displayed_categories();
 	}
 	function toggle_mastered(e) {
