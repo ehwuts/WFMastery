@@ -11,7 +11,7 @@
 -   [x] Visual response to local save
 -   [ ] Support the language sets
 -   [ ] Make Hide Founders also hide their contributions to summaries
--   [ ] Add China exclusives with same features as Founders toggle
+-   [ ] ~~Add China exclusives with same features as Founders toggle~~ Aside from Excalibur Umbra Prime, no longer exclusives.
 
 ## Summary
 
@@ -23,7 +23,7 @@
 
 ## Categories
 
--   [ ] Hide category entirely if "Hide Mastered" is on and the entire category is complete
+-   [x] Hide category entirely if "Hide Mastered" is on and the entire category is complete
 -   [x] "Select All" button per category
 -   [x] "Invert Selection" button per category
 -   [x] Make those category buttons not effect founder items when "Hide Founder" is checked
