@@ -45,13 +45,13 @@ WFMastery = (function (srcData) {
 			completion_gained += direction;
 			state_categories[category].current += direction;
 			state[category][ident[2]] = result ? 1 : 0;
-			
+
 			let delta = result ? categories[category] : - categories[category];
 			if (classes.contains("r40")) {
 				delta *= 4 / 3;
 			}
 			mastery_gained += delta;
-			
+
 			if (redraw) {
 				update_mastery_display();
 				element_completion_gained.innerText = completion_gained;
@@ -63,7 +63,7 @@ WFMastery = (function (srcData) {
 	function update_all_summaries() {
 		element_completion_gained.innerText = completion_gained;
 		update_mastery_display();
-		
+
 		let keys = Object.keys(state_categories);
 		let I = keys.length;
 		for (let i = 0; i < I; i++) {
@@ -95,7 +95,7 @@ WFMastery = (function (srcData) {
 				founded[i].classList.remove("hide");
 			}
 		}
-		
+
 		//painfully lazy hardcoded max count updates for founder hiding
 		let e_W = document.getElementById("category_Warframes_possible");
 		let e_S = document.getElementById("category_Secondaries_possible");
@@ -113,9 +113,9 @@ WFMastery = (function (srcData) {
 			e_S.innerText = (e_S.innerText|0) + 1;
 			e_M.innerText = (e_M.innerText|0) + 1;
 			e_P.innerText = (e_P.innerText|0) + 3;
-			e_PP.innerText = (e_PP.innerText|0) + 12000;	
+			e_PP.innerText = (e_PP.innerText|0) + 12000;
 		}
-		
+
 		toggle_displayed_categories();
 	}
 	function toggle_mastered(e) {
@@ -172,9 +172,9 @@ WFMastery = (function (srcData) {
 		let parts = t.id.split("_");
 		let counter = document.getElementById("slider_amount_" + parts[1]);
 		counter.innerText = "" + t.value + "/" + counter.innerText.split("/")[1];
-		
+
 		let slider = data.sliders[state_sliders[parts[1]].id];
-		
+
 		if (slider.total) {
 			var points_old = state_sliders[parts[1]].value;
 			points_old = Math.round(slider.total * points_old / slider.count);
@@ -183,7 +183,7 @@ WFMastery = (function (srcData) {
 			var points_old = state_sliders[parts[1]].value * slider.value;
 			var points_new = t.value * slider.value;
 		}
-		
+
 		state_sliders[parts[1]].value = t.value;
 		mastery_gained += (points_new - points_old);
 		update_mastery_display();
@@ -200,9 +200,9 @@ WFMastery = (function (srcData) {
 		let estimate = Math.ceil(rank_need / 3000);
 		document.getElementById("rank_gained").innerText = rank_gained;
 		document.getElementById("rank_need").innerText = "(" + rank_need + " points until MR" + (rank_gained + 1) + ", roughly " + estimate + " weapon" +(estimate == 1 ? "" : "s")+")";
-		
+
 	}
-	
+
 	function rank_from_mastery(x) {
 		return Math.floor(Math.sqrt(x / 2500));
 	}
@@ -240,7 +240,7 @@ WFMastery = (function (srcData) {
 			"items": {},
 			"sliders": {}
 		};
-		
+
 		//JSON stringify treats TypedArrays as objects which triples output size
 		//so first, convert to generics
 		let keys = Object.keys(state);
@@ -253,7 +253,7 @@ WFMastery = (function (srcData) {
 		for (let i = 0; i < I; i++) {
 			cache.sliders[keys[i]] = state_sliders[keys[i]].value;
 		}
-		
+
 		return JSON.stringify(cache);
 	}
 	function tick_save_notice() {
@@ -292,16 +292,16 @@ WFMastery = (function (srcData) {
 			console.log(e);
 			return;
 		}
-		
+
 		document.getElementById("config_reset").click();
-		
+
 		if (s.config_mastered) {
 			document.getElementById("config_mastered").click();
 		}
 		if (s.config_founder) {
 			document.getElementById("config_founder").click();
 		}
-		
+
 		let keys = Object.keys(s.items);
 		let I = keys.length;
 		for (let i = 0; i < I; i++) {
@@ -355,7 +355,7 @@ WFMastery = (function (srcData) {
 	}
 	function create_slider(slider, id) {
 		state_sliders[slider.name] = { "value" : 0, "id" : id };
-		document.getElementById("sliders").innerHTML += 
+		document.getElementById("sliders").innerHTML +=
 		"<div>" + slider.name + " - <span id=\"slider_amount_" + slider.name + "\">0/" + slider.count + "</span><br><input type=\"range\" class=\"slider\" id=\"slider_" + slider.name + "\" value=\"0\" min=\"0\" max=\"" + slider.count + "\"></div>";
 	}
 	function initLayout() {
@@ -369,18 +369,18 @@ WFMastery = (function (srcData) {
 			categories[category] = data.categories[i].mastery;
 			//alphabeticize the data
 			items.sort(sort_items);
-			
-			let J = items.length;			
+
+			let J = items.length;
 			mastery_possible += data.categories[i].mastery * J;
 			state_categories[category] = { "current": 0, "max": J };
 			create_category(category);
-			
+
 			if (typeof state[category] !== "undefined") {
 				console.log("Warning: Duplicate item category '" + category + "' during initialization. This WILL break things.");
 			}
 			//TypedArrays have the speed
 			state[category] = new Int8Array(J).fill(0);
-			
+
 			for (let j = 0; j < J; j++) {
 				if (items[j][2] && items[j][2].indexOf("r40") !== -1) {
 					mastery_possible += data.categories[i].mastery / 3;
@@ -390,7 +390,7 @@ WFMastery = (function (srcData) {
 			}
 		}
 		document.getElementById("completion_possible").innerText = completion_possible;
-		
+
 		I = data.sliders.length;
 		for (let i = 0; i < I; i++) {
 			let slider = data.sliders[i];
@@ -401,9 +401,9 @@ WFMastery = (function (srcData) {
 				mastery_possible += slider.count * slider.value;
 			}
 		}
-		
+
 		document.getElementById("mastery_possible").innerText = mastery_possible;
-		
+
 		//blanket assign generic toggle then overwrite configs with their customs
 		//because other assignment orders were mysteriously broken
 		var buttons = document.getElementsByClassName("button");
@@ -417,21 +417,21 @@ WFMastery = (function (srcData) {
 		document.getElementById("config_export").onclick = export_state;
 		document.getElementById("config_import").onclick = import_state;
 		document.getElementById("config_show_code").onclick = toggle_show_code;
-		
+
 		let keys = Object.keys(state);
 		I = keys.length;
 		for (let i = 0; i < I; i++) {
 			document.getElementById("config_all_" + keys[i]).onclick = select_all;
 			document.getElementById("config_invert_" + keys[i]).onclick = invert_all;
 		}
-		
+
 		var sliders = document.getElementsByClassName("slider");
 		I = sliders.length;
 		for (let i = 0; i < I; i++) {
 			sliders[i].onchange = update_slider;
 			sliders[i].oninput = update_slider;
 		}
-		
+
 		//check that localstorage is even a thing for local persistance
 		if (!!window.localStorage) {
 			can_save = true;
@@ -445,7 +445,7 @@ WFMastery = (function (srcData) {
 			e.onclick = undefined;
 			e.classList.add("hide");
 		}
-		
+
 		//cache this element since profiling showed its lookup was devouring time
 		element_completion_gained = document.getElementById("completion_gained");
 	}
