@@ -112,7 +112,8 @@
 				["Octavia Prime", 76],
 				["Sevagoth", 77],
 				["Gara Prime", 78],
-				["Yareli", 79]
+				["Yareli", 79],
+				["Nidus Prime", 80 ]
 			]
 		},
 		{
@@ -268,7 +269,8 @@
 				["Tenet Arca Plasmor", 146, ["r40"]],
 				["Kuva Hek", 147, ["r40"]],
 				["Kuva Zarr", 148, ["r40"]],
-				["Ambassador", 149]
+				["Ambassador", 149],
+				["Strun Prime", 150 ]
 			]
 		},
 		{
@@ -395,7 +397,8 @@
 				["Tenet Spirex", 117, ["r40"]],
 				["Tenet Cycron", 118, ["r40"]],
 				["Tenet Detron", 119, ["r40"]],
-				["Kompressa", 120]
+				["Kompressa", 120],
+				[ "Magnus Prime", 121 ]
 			]
 		},
 		{
@@ -572,7 +575,9 @@
 				["Tenet Exec", 167, ["r40"]],
 				["Tenet Livia", 168, ["r40"]],
 				["Tenet Grigori", 169, ["r40"]],
-				["Cadus", 170]
+				["Cadus", 170],
+				["Ghoul Saw", 171 ],
+				["Vastilok", 172 ]
 			]
 		},
 		{
