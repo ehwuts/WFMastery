@@ -1,11 +1,11 @@
 {
 	"schema": 1.2,
-	"patch": "30.5.0",
+	"patch": "34.0.8.1",
 	"sliders": [
 		{ 
 			"name": "Missions",
-			"count": 233,
-			"total": 14501
+			"count": 241,
+			"total": 14519
 		},
 		{
 			"name": "Junctions",
@@ -13,14 +13,19 @@
 			"value": 1000
 		},
 		{
-			"name": "Intrinsics",
+			"name": "Railjack Intrinsics",
 			"count": 50,
 			"value": 1500
-		}, 
+		},
+		{
+			"name": "Drifter Intrinsics",
+			"count": 40,
+			"value": 1500
+		},
 		{
 			"name": "Steel Path Missions",
-			"count": 233,
-			"total": 14501
+			"count": 241,
+			"total": 14519
 		},
 		{
 			"name": "Steel Path Junctions",
@@ -113,7 +118,22 @@
 				["Sevagoth", 77],
 				["Gara Prime", 78],
 				["Yareli", 79],
-				["Nidus Prime", 80 ]
+				["Nidus Prime", 80],
+				["Baruuk Prime", 81],
+				["Caliban", 82],
+				["Citrine", 83],
+				["Dagath", 84],
+				["Grendel Prime", 85],
+				["Gyre", 86],
+				["Harrow Prime", 87],
+				["Hildryn Prime", 88],
+				["Khora Prime", 89],
+				["Kullervo", 90],
+				["Revenant Prime", 91],
+				["Styanax", 92],
+				["Voruna", 93],
+				["Wisp Prime", 94],
+				["Garuda Prime", 95]
 			]
 		},
 		{
@@ -270,7 +290,24 @@
 				["Kuva Hek", 147, ["r40"]],
 				["Kuva Zarr", 148, ["r40"]],
 				["Ambassador", 149],
-				["Strun Prime", 150 ]
+				["Strun Prime", 150],
+				["Aeolak", 151],
+				["Afentis", 152],
+				["Alternox", 153],
+				["Cinta", 154],
+				["Felarx", 155],
+				["Fulmin Prime", 156],
+				["Gotva Prime", 157],
+				["Nagantaka Prime", 158],
+				["Nataruk", 159],
+				["Perigale", 160],
+				["Phantasma Prime", 161],
+				["Phenmor", 162],
+				["Prisma Lenz", 163],
+				["Rauta", 164],
+				["Scourge Prime", 165],
+				["Steflos", 166],
+				["Tenet Ferrox", 167, ["r40"]]
 			]
 		},
 		{
@@ -398,7 +435,14 @@
 				["Tenet Cycron", 118, ["r40"]],
 				["Tenet Detron", 119, ["r40"]],
 				["Kompressa", 120],
-				[ "Magnus Prime", 121 ]
+				["Magnus Prime", 121],
+				["Aegrit", 122],
+				["Afuris Prime", 123],
+				["Hystrix Prime", 124],
+				["Knell Prime", 125],
+				["Laetum", 126],
+				["Tenet Plinx", 127, ["r40"]],
+				["Zylok Prime", 128]
 			]
 		},
 		{
@@ -576,8 +620,33 @@
 				["Tenet Livia", 168, ["r40"]],
 				["Tenet Grigori", 169, ["r40"]],
 				["Cadus", 170],
-				["Ghoul Saw", 171 ],
-				["Vastilok", 172 ]
+				["Ghoul Saw", 171],
+				["Vastilok", 172],
+				["Argo & Vel", 173],
+				["Azothane", 174],
+				["Cobra & Crane Prime", 175],
+				["Corufell", 176],
+				["Dorrclave", 177],
+				["Dual Keres Prime", 178],
+				["Edun", 179],
+				["Gunsen Prime", 180],
+				["Hespar", 181],
+				["Innodem", 182],
+				["Masseter Prime", 183],
+				["Praedos", 184],
+				["Rumblejack", 185],
+				["Sampotes", 186],
+				["Sarofang", 187],
+				["Slaytra", 188],
+				["Sun & Moon", 189],
+				["Syam", 190],
+				["Tatsu Prime", 191],
+				["Venato", 192],
+				["Verdilac", 193],
+				["Vericres", 194],
+				["Korumm", 195],
+				["Nepheri", 196],
+				["Prisma Ohma", 197]
 			]
 		},
 		{
@@ -620,7 +689,8 @@
 				["Rahn Prism", 4],
 				["Cantic Prism", 5],
 				["Lega Prism", 6],
-				["Klamora Prism", 7]
+				["Klamora Prism", 7],
+				["Sirocco", 8]
 			]
 		},
 		{
@@ -642,7 +712,8 @@
 				["Adarza Kavat", 0],
 				["Smeeta Kavat", 1],
 				["Vasca Kavat", 2],
-				["Venari", 3]
+				["Venari", 3],
+				["Venari Prime", 4]
 			]
 		},
 		{
@@ -673,7 +744,8 @@
 				["Taxon", 11],
 				["Wyrm", 12],
 				["Wyrm Prime", 13],
-				["Nautilus", 14]
+				["Nautilus", 14],
+				["Shade Prime", 15]
 			]
 		},
 		{
@@ -701,7 +773,8 @@
 				["Verglas", 18],
 				["Akaten", 19],
 				["Batoten", 20],
-				["Lacerten", 21]
+				["Lacerten", 21],
+				["Burst Laser Prime", 22]
 			]
 		},
 		{
@@ -741,7 +814,9 @@
 				["Mausolon", 12],
 				["Morgha", 13],
 				["Prisma Dual Decurion", 14],
-				["Kuva Grattler", 15, ["r40"]]
+				["Kuva Grattler", 15, ["r40"]],
+				["Corvas Prime", 16],
+				["Larkspur Prime", 17]
 			]
 		},
 		{
