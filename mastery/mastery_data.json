@@ -1,10 +1,10 @@
 {
 	"schema": 1.2,
-	"patch": "34.0.8.1",
+	"patch": "35.0.1",
 	"sliders": [
 		{ 
 			"name": "Missions",
-			"count": 241,
+			"count": 246,
 			"total": 14519
 		},
 		{
@@ -24,7 +24,7 @@
 		},
 		{
 			"name": "Steel Path Missions",
-			"count": 241,
+			"count": 246,
 			"total": 14519
 		},
 		{
@@ -133,7 +133,8 @@
 				["Styanax", 92],
 				["Voruna", 93],
 				["Wisp Prime", 94],
-				["Garuda Prime", 95]
+				["Garuda Prime", 95],
+				["Qorvex", 96]
 			]
 		},
 		{
@@ -442,7 +443,8 @@
 				["Knell Prime", 125],
 				["Laetum", 126],
 				["Tenet Plinx", 127, ["r40"]],
-				["Zylok Prime", 128]
+				["Zylok Prime", 128],
+				["Grimoire", 129]
 			]
 		},
 		{
@@ -646,7 +648,8 @@
 				["Vericres", 194],
 				["Korumm", 195],
 				["Nepheri", 196],
-				["Prisma Ohma", 197]
+				["Prisma Ohma", 197],
+				["Ekhein", 198]
 			]
 		},
 		{
@@ -816,7 +819,8 @@
 				["Prisma Dual Decurion", 14],
 				["Kuva Grattler", 15, ["r40"]],
 				["Corvas Prime", 16],
-				["Larkspur Prime", 17]
+				["Larkspur Prime", 17],
+				["Mandonel", 18]
 			]
 		},
 		{
